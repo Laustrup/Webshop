@@ -1,8 +1,8 @@
-namespace Webshop.Models;
+namespace Models;
 
 public class ErrorViewModel
 {
-    public string? RequestId { get; set; }
+    private string? _requestId {get;} public string? RequestId {get{return _requestId;}}  
 
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    public bool ShowRequestId => !string.IsNullOrEmpty(_requestId);
 }
