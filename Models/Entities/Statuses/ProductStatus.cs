@@ -1,4 +1,4 @@
-namespace Webshop.Models.Entities.Statuses;
+namespace Entities.Statuses;
 
 public enum ProductStatus {
     DRAFT,PUBLISHED

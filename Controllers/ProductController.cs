@@ -13,7 +13,7 @@ public class ProductController : Controller {
 
     public IActionResult Index() {
         IEnumerable<Product> products = context.Product.ToList();
-        return View();
+        return View(products);
     }
 
     public IActionResult Create() {
@@ -28,6 +28,21 @@ public class ProductController : Controller {
             return RedirectToAction("Index");
         }
 
+        return View();
+    }
+
+    public IActionResult Edit(int id) {
+        Post p = context.products.Find(id);
+        return View(p);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(int id, [Bind("id", "title", "description", "price", )] Product product) {
+        if (ModelState.isValid) {
+            context.products.Update(product);
+            context.SaveChanges();
+            return RedirectToAction("index");
+        }
         return View();
     }
 }
