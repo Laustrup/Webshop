@@ -6,13 +6,13 @@ namespace Webshop.Controllers;
 
 public class ProductController : Controller {
     
-    private ProductContext context;
+    private ProductContext _context;
     public ProductController(ProductContext context) {
-        this.context = context;
+        _context = context;
     }
 
     public IActionResult Index() {
-        IEnumerable<Product> products = context.Product.ToList();
+        IEnumerable<Product> products = _context.Product.ToList();
         return View(products);
     }
 
@@ -23,8 +23,8 @@ public class ProductController : Controller {
     [HttpPost]
     public IActionResult Create([Bind("title","description","price","status")] Product product) {
         if (ModelState.IsValid) {
-            context.Product.Add(product);
-            context.SaveChanges();
+            _context.Product.Add(product);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -32,15 +32,15 @@ public class ProductController : Controller {
     }
 
     public IActionResult Edit(int id) {
-        Post p = context.products.Find(id);
+        Post p = _context.products.Find(id);
         return View(p);
     }
 
     [HttpPost]
-    public IActionResult Edit(int id, [Bind("id", "title", "description", "price", )] Product product) {
+    public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product) {
         if (ModelState.isValid) {
-            context.products.Update(product);
-            context.SaveChanges();
+            _context.products.Update(product);
+            _context.SaveChanges();
             return RedirectToAction("index");
         }
         return View();

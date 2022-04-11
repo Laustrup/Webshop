@@ -1,0 +1,8 @@
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.csproj.AssemblyReference.cache
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.AssemblyInfoInputs.cache
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.AssemblyInfo.cs
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.csproj.CoreCompileInputs.cache
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.RazorAssemblyInfo.cache
+C:\Users\Laust\Visual_studio\ASP.NET\Webshop\obj\Debug\net6.0\Webshop.RazorAssemblyInfo.cs

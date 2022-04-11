@@ -26,12 +26,12 @@ public class User {
         _established = DateTime.Now;
     }
 
-    public List<Product> Add_To_Cart(Product product) {
+    public List<Product> AddToCart(Product product) {
         _cart.Add(product);
         return _cart;
     }
 
-    public List<Product.Comment> Add_Comment(Product.Comment comment) {
+    public List<Product.Comment> AddComment(Product.Comment comment) {
         _comments.Add(comment);
         return _comments;
     }
