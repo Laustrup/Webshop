@@ -1,0 +1,35 @@
+@model IEnumerable<Webshop.Models.Entities.Product>
+
+@{ViewData["Title"] = "Index";}
+
+<section class="d-flex justify-content-between">
+    <h4>Products</h4>
+</section>
+
+<!-- Search form -->
+<form asp-controller="Products" asp-action="Index" method="GET">
+    <p>
+        Title: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+<section class="container">
+    <!-- Titles of each column -->
+    <section class="row">
+        <div class="col-6 col-md-2">Title</div>
+        <div class="col-2 col-md-1">Price</div>
+    </section>
+    <!-- Each row of products -->
+    <section>
+        @foreach (var product in Model)
+        {
+        <section class="row grid-row">
+            <div class="col-6 col-md-2">@Html.DisplayFor(x => product.Title)</div>
+            <div class="col-2 col-md-1">@Html.DisplayFor(x => product.Price)</div>
+            <div class="col-1"><a class="btn btn-secondary" asp-action="edit" asp-route-id="@product.Id">Edit</a></div>
+        </section>
+        }
+    </section>
+</section>
+
