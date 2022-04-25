@@ -1,17 +1,17 @@
 @model Entities.Product
 
-@{ViewData["Product"] = "product"}
+@{ViewData["Title"] = "product_create"}
 
 <h1>Create Product</h1>
 
 <h4>Product</h4>
 <hr />
-<section id="create_product_dashboard">
+<section class="dashboard">
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                @await Html.PartialAsync("inputs")
+                @await Html.PartialAsync("fragments/inputs")
             </form>
         </div>
     </div>

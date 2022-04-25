@@ -1,10 +1,10 @@
-@model Webshop.Models.Entities.Product
+@model Entities.User
 
-@{ViewData["Title"] = "product_edit";}
+@{ViewData["Title"] = "user_edit"}
 
 <h1>Edit</h1>
 
-<h4>Product</h4>
+<h4>Html.DisplayFor(Model.Title)</h4>
 <hr />
 <section class="dashboard">
     <div class="row">
@@ -16,8 +16,8 @@
             </form>
         </div>
     </div>
+
+    <div><a asp-action="Index">Go back</a></div>
+
+    @section Scripts {@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}
 </section>
-
-<div><a asp-action="Index">Go back</a></div>
-
-@section Scripts {@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}

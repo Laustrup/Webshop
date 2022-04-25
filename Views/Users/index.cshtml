@@ -1,0 +1,12 @@
+@model IEnumerable<Entities.User>
+
+@{ViewData["Title"] = "user_index"}
+
+<section id="user_info">
+    @await Html.PartialAsync("fragments/details")
+
+    @await Html.PartialAsync("fragments/cart")
+
+    @await Html.PartialAsync("fragments/user_comments")
+
+</section>
