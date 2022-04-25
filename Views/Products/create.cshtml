@@ -1,17 +1,16 @@
-@model Webshop.Models.Entities.Product
+@model Entities.Product
 
-@{ViewData["Title"] = "edit";}
+@{ViewData["Product"] = "product"}
 
-<h1>Edit</h1>
+<h1>Create Product</h1>
 
-<h4>Products</h4>
+<h4>Product</h4>
 <hr />
-<section id="edit_product_dashboard">
+<section id="create_product_dashboard">
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Edit">
+            <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
                 @await Html.PartialAsync("inputs")
             </form>
         </div>
