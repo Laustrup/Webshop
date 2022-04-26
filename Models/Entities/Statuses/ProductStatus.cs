@@ -1,5 +1,3 @@
 namespace Entities.Statuses;
 
-public enum ProductStatus {
-    DRAFT,PUBLISHED
-}
+public enum ProductStatus {DRAFT,PUBLISHED}

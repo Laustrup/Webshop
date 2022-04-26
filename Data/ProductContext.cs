@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Webshop.Models.Entities;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -20,7 +20,7 @@ public class ProductContext : IdentityContext {
 
     public DbSet<Product> Products {get;set;}
 
-    public DbSet<Webshop.Models.Entities.Product> Product { get; set; }
+    public DbSet<Entities.Product> Product { get; set; }
 
     private void SeedProducts(ModelBuilder builder)
     {

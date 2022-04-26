@@ -1,24 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
-using Webshop.Models.Entities;
+using Entities;
 using Webshop.Data;
 
-namespace Webshop.Controllers;
+namespace Controllers;
 
 public class ProductController : Controller {
     
     private ProductContext _context;
-    public ProductController(ProductContext context) {
-        _context = context;
-    }
+    
+    public ProductController(ProductContext context) {_context = context;}
 
     public IActionResult Index() {
         IEnumerable<Product> products = _context.Product.ToList();
         return View(products);
     }
 
-    public IActionResult Create() {
-        return View();
-    }
+    public IActionResult Create() {return View();}
 
     [HttpPost]
     public IActionResult Create([Bind("title","description","price","status")] Product product) {
@@ -27,7 +24,6 @@ public class ProductController : Controller {
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         return View();
     }
 
