@@ -19,7 +19,7 @@ public class ProductContext : IdentityDbContext {
         this.SeedProducts(builder);
     }
 
-    public DbSet<Product> Products {get;set;}
+    public DbSet<Product> Products { get; set; }
 
     public DbSet<Product> Product { get; set; }
 

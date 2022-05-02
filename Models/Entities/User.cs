@@ -4,6 +4,8 @@ namespace Entities;
 
 public class User {
 
+    private int _id {get; set;} public int Id {get{return _id;} set{if(_id==null){_id=value;}}}
+
     [Required(ErrorMessage = "Please insert title...")]
     [MinLength(3,ErrorMessage = "Minimum length is 3!")]
     [MaxLength(100,ErrorMessage = "Maximum length is 100!")]
