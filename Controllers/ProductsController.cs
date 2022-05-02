@@ -1,24 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
 using Entities;
-using Webshop.Data;
+using Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Controllers;
 
-public class ProductController : Controller {
+[Authorize]
+public class ProductController : Controller 
+{
     
     private ProductContext _context;
+    private readonly UserManager<IdentityUser> _manager;
     
-    public ProductController(ProductContext context) {_context = context;}
+    public ProductController(ProductContext context, UserManager<IdentityUser> manager) 
+    {
+        _context = context;
+        _manager = manager;
+    }
 
+    [AllowAnonymous]
     public IActionResult Index() {
-        IEnumerable<Product> products = _context.Product.ToList();
+        var products = _context.Products.Include(product => product.User).ToList();
+        // IEnumerable<Product> products = _context.Product.ToList();
         return View(products);
     }
 
     public IActionResult Create() {return View();}
 
     [HttpPost]
-    public IActionResult Create([Bind("title","description","price","status")] Product product) {
+    public Task<IActionResult> Create([Bind("title","description","price","status")] Product product) {
         if (ModelState.IsValid) {
             _context.Product.Add(product);
             _context.SaveChanges();
@@ -28,8 +40,8 @@ public class ProductController : Controller {
     }
 
     public IActionResult Edit(int id) {
-        Post p = _context.products.Find(id);
-        return View(p);
+        Product product = _context.products.Find(id);
+        return View(product);
     }
 
     [HttpPost]

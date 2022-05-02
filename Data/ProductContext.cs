@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
-namespace Webshop.Data;
+namespace Data;
 
-public class ProductContext : IdentityContext {
+public class ProductContext : IdentityDbContext {
 
     public ProductContext(DbContextOptions<ProductContext> options) : base(options) {}
 
@@ -20,11 +21,9 @@ public class ProductContext : IdentityContext {
 
     public DbSet<Product> Products {get;set;}
 
-    public DbSet<Entities.Product> Product { get; set; }
+    public DbSet<Product> Product { get; set; }
 
-    private void SeedProducts(ModelBuilder builder)
-    {
-        
+    private void SeedProducts(ModelBuilder builder){
         builder.Entity<Product>().HasData();
     }
 }
