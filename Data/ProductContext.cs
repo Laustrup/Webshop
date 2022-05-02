@@ -24,6 +24,8 @@ public class ProductContext : IdentityDbContext {
     public DbSet<Product> Product { get; set; }
 
     private void SeedProducts(ModelBuilder builder){
-        builder.Entity<Product>().HasData();
+        builder.Entity<Product>().HasData(
+            new Product("Gibson Les Paul Standard", "This is a guitar",15000)
+        );
     }
 }

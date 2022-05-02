@@ -22,15 +22,14 @@ public class ProductController : Controller
 
     [AllowAnonymous]
     public IActionResult Index() {
-        var products = _context.Products.Include(product => product.User).ToList();
-        // IEnumerable<Product> products = _context.Product.ToList();
+        IEnumerable<Product> products = _context.Product.ToList();
         return View(products);
     }
 
     public IActionResult Create() {return View();}
 
     [HttpPost]
-    public Task<IActionResult> Create([Bind("title","description","price","status")] Product product) {
+    public IActionResult Create([Bind("title","description","price","status")] Product product) {
         if (ModelState.IsValid) {
             _context.Product.Add(product);
             _context.SaveChanges();
@@ -40,14 +39,14 @@ public class ProductController : Controller
     }
 
     public IActionResult Edit(int id) {
-        Product product = _context.products.Find(id);
+        Product product = _context.Products.Find(id);
         return View(product);
     }
 
     [HttpPost]
     public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product) {
-        if (ModelState.isValid) {
-            _context.products.Update(product);
+        if (ModelState.IsValid) {
+            _context.Products.Update(product);
             _context.SaveChanges();
             return RedirectToAction("index");
         }
