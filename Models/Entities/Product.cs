@@ -7,7 +7,6 @@ namespace Entities
 
         private int _id {get;} public int Id {get{return _id;}}
 
-
         [Required(ErrorMessage = "Please insert title...")]
         [MinLength(3,ErrorMessage = "Minimum length is 3!")]
         [MaxLength(100,ErrorMessage = "Maximum length is 100!")]
@@ -23,15 +22,23 @@ namespace Entities
 
         private ProductStatus _status {get;set;} public ProductStatus Status {get{return _status;} set{_status = value;}}
 
-        public Product(string title,string description,int price) {
+        public Product(string title,string description,int price)
+        {
             _title = title;
             _description = description;
             _price = price;
         }
 
-        public List<Comment> Add_Comment(Comment comment) {
-            _comments.Add(comment);
-            return _comments;
+        public List<Comment> Add_Comment(Comment comment)
+        {
+            if (_comments == null) {
+                return null;
+            }
+            else
+            {
+                _comments.Add(comment);
+                return _comments;
+            }
         }
     }
 } 

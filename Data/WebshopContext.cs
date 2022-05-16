@@ -21,7 +21,8 @@ namespace Data
 
         public DbSet<Product> Products { get; set; }
 
-        private void SeedProducts(ModelBuilder builder){
+        private void SeedProducts(ModelBuilder builder)
+        {
                 builder.Entity<Product>().HasData(
                     new Product("Gibson Les Paul Standard", "This is a guitar",15000)
                 );
@@ -29,9 +30,10 @@ namespace Data
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Comment> comments { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
-        private void SeedUsers(ModelBuilder builder){
+        private void SeedUsers(ModelBuilder builder)
+        {
             builder.Entity<User>().HasData(
                 new User("Jens","I am Jens")
             );

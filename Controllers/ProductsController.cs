@@ -21,7 +21,8 @@ namespace Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Index() {
+        public IActionResult Index()
+        {
             IEnumerable<Product> products = _context.Products.ToList();
             return View(products);
         }
@@ -29,7 +30,8 @@ namespace Controllers
         public IActionResult Create() {return View();}
 
         [HttpPost]
-        public IActionResult Create([Bind("title","description","price","status")] Product product) {
+        public IActionResult Create([Bind("title","description","price","status")] Product product)
+        {
             if (ModelState.IsValid) {
                 _context.Products.Add(product);
                 _context.SaveChanges();
@@ -38,13 +40,15 @@ namespace Controllers
             return View();
         }
 
-        public IActionResult Edit(int id) {
+        public IActionResult Edit(int id)
+        {
             Product product = _context.Products.Find(id);
             return View(product);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product) {
+        public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product)
+        {
             if (ModelState.IsValid) {
                 _context.Products.Update(product);
                 _context.SaveChanges();

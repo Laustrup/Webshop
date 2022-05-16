@@ -16298,8 +16298,18 @@
   "RootNamespace": "Webshop",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Product\\index.cshtml",
-      "TargetPath": "Views\\Product\\index.cshtml",
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\create.cshtml",
+      "TargetPath": "Views\\Users\\create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\fragments\\cart.cshtml",
+      "TargetPath": "Views\\Users\\fragments\\cart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16308,8 +16318,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\fragments\\details.cshtml",
+      "TargetPath": "Views\\Users\\fragments\\details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16318,8 +16353,43 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Products\\fragments\\inputs.cshtml",
+      "TargetPath": "Views\\Products\\fragments\\inputs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Products\\index.cshtml",
+      "TargetPath": "Views\\Products\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\fragments\\inputs.cshtml",
+      "TargetPath": "Views\\Users\\fragments\\inputs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Products\\edit.cshtml",
+      "TargetPath": "Views\\Products\\edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16328,8 +16398,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\index.cshtml",
+      "TargetPath": "Views\\Users\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Products\\create.cshtml",
+      "TargetPath": "Views\\Products\\create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\fragments\\user_comments.cshtml",
+      "TargetPath": "Views\\Users\\fragments\\user_comments.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Laust\\Visual_studio\\ASP.NET\\Webshop\\Views\\Users\\edit.cshtml",
+      "TargetPath": "Views\\Users\\edit.cshtml",
       "FileKind": "mvc"
     },
     {

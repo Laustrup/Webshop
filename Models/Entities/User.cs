@@ -14,13 +14,14 @@ namespace Entities
         [MaxLength(500,ErrorMessage = "Maximum length is 500!")]
         private string? _description {get; set;} public string? Description {get{return _description;} set{_description = value;}}
 
-        private List<Product> _cart {get;} public List<Product> Cart {get{return _cart;}}
+        private List<Product> _cart {get; set;} public List<Product> Cart {get{return _cart;}}
 
-        private List<Comment> _comments {get;} public List<Comment> Comments {get{return _comments;}}
+        private List<Comment> _comments {get; set;} public List<Comment> Comments {get{return _comments;}}
 
         private DateTime _established {get;} public DateTime Established {get{return _established;}}
 
-        public User(string title, string? description) {
+        public User(string title, string? description)
+        {
             _title = title;
             _description = description;
             _cart = new List<Product>();
@@ -28,12 +29,14 @@ namespace Entities
             _established = DateTime.Now;
         }
 
-        public List<Product> AddToCart(Product product) {
+        public List<Product> AddToCart(Product product)
+        {
             _cart.Add(product);
             return _cart;
         }
 
-        public List<Comment> AddComment(Comment comment) {
+        public List<Comment> AddComment(Comment comment)
+        {
             _comments.Add(comment);
             return _comments;
         }
