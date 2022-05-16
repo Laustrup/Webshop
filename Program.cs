@@ -7,8 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ProductContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("ProductContext")));
+builder.Services.AddDbContext<WebshopContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("WebshopContext")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<WebshopContext>();builder.Services.AddDbContext<WebshopContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("WebshopContext")));
+
+/*
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+.AddDefaultUI()
+.AddEntityFrameworkStores<WebshopContext>();
+builder.Services.AddControllersWithViews();
+*/
 
 var app = builder.Build();
 
@@ -27,8 +38,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseAuthorization();
-
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

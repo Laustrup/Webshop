@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Data;
 
-public class ProductContext : IdentityDbContext {
+public class WebshopContext : IdentityDbContext {
 
-    public ProductContext(DbContextOptions<ProductContext> options) : base(options) {}
+    public WebshopContext(DbContextOptions<WebshopContext> options) : base(options) {}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -21,11 +21,17 @@ public class ProductContext : IdentityDbContext {
 
     public DbSet<Product> Products { get; set; }
 
-    public DbSet<Product> Product { get; set; }
-
     private void SeedProducts(ModelBuilder builder){
-        builder.Entity<Product>().HasData(
-            new Product("Gibson Les Paul Standard", "This is a guitar",15000)
+            builder.Entity<Product>().HasData(
+                new Product("Gibson Les Paul Standard", "This is a guitar",15000)
+            );
+    }
+
+    public DbSet<User> Users { get; set; }
+
+    private void SeedUsers(ModelBuilder builder){
+        builder.Entity<User>().HasData(
+            new User("Jens","I am Jens")
         );
     }
 }

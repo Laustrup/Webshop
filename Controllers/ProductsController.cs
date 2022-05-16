@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 namespace Controllers;
 
 [Authorize]
-public class ProductController : Controller 
+public class ProductsController : Controller 
 {
     
-    private ProductContext _context;
+    private WebshopContext _context;
     private readonly UserManager<IdentityUser> _manager;
     
-    public ProductController(ProductContext context, UserManager<IdentityUser> manager) 
+    public ProductsController(WebshopContext context, UserManager<IdentityUser> manager) 
     {
         _context = context;
         _manager = manager;
@@ -22,7 +22,7 @@ public class ProductController : Controller
 
     [AllowAnonymous]
     public IActionResult Index() {
-        IEnumerable<Product> products = _context.Product.ToList();
+        IEnumerable<Product> products = _context.Products.ToList();
         return View(products);
     }
 
@@ -31,7 +31,7 @@ public class ProductController : Controller
     [HttpPost]
     public IActionResult Create([Bind("title","description","price","status")] Product product) {
         if (ModelState.IsValid) {
-            _context.Product.Add(product);
+            _context.Products.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
