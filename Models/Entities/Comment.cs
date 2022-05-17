@@ -4,7 +4,8 @@ namespace Entities
 {
     public class Comment {
 
-        private int _id {get;} public int Id {get{return _id;}}
+        [Key]
+        public int Id {get; set;}
 
         private User _author {get;} public User Author {get{return _author;}}
         private Product _product {get;} public Product Product {get{return _product;}}
@@ -14,6 +15,8 @@ namespace Entities
         private string _content {get; set;} public string Content {get{return _content;} set{_content = value;}}
 
         private DateTime _timeStamp {get;} public DateTime TimeStamp {get{return _timeStamp;}}
+
+        public Comment() {}
 
         public Comment(User author, Product product, string content)
         {

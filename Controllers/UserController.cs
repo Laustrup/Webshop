@@ -1,4 +1,4 @@
-namespace Webshop.Controllers
+namespace Controllers
 {
     public class UserController
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Entities;
 
-namespace Webshop.Controllers
+namespace Controllers
 {
     public class CommentsController : Controller
     {
@@ -25,7 +25,7 @@ namespace Webshop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Author,Product,Content")] Comment comment) 
+        public async Task<IActionResult> Create([Bind("Id","Author","Product","Content")] Comment comment) 
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace Webshop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Author,Product,Content")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id","Author","Product","Content")] Comment comment)
         {
             if (id != comment.Id) { return NotFound(); }
 

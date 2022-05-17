@@ -28,6 +28,15 @@ namespace Entities
             _comments = new List<Comment>();
             _established = DateTime.Now;
         }
+        public User(string title, string? description, int id)
+        {
+            _title = title;
+            _description = description;
+            _cart = new List<Product>();
+            _comments = new List<Comment>();
+            _established = DateTime.Now;
+            Id = id;
+        }
 
         public List<Product> AddToCart(Product product)
         {

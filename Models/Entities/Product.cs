@@ -5,7 +5,8 @@ namespace Entities
 {
     public class Product {
 
-        private int _id {get;} public int Id {get{return _id;}}
+        [Key]
+        public int Id {get; set;}
 
         [Required(ErrorMessage = "Please insert title...")]
         [MinLength(3,ErrorMessage = "Minimum length is 3!")]
@@ -27,6 +28,14 @@ namespace Entities
             _title = title;
             _description = description;
             _price = price;
+        }
+
+        public Product(string title,string description,int price, int id)
+        {
+            _title = title;
+            _description = description;
+            _price = price;
+            Id = id;
         }
 
         public List<Comment> Add_Comment(Comment comment)
