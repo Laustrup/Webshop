@@ -60,7 +60,7 @@ namespace Controllers
             return View(comment);
         }
 
-        public async Task<IActionResult> PromptDelete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) { return NotFound(); }
 
