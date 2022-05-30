@@ -1,35 +1,37 @@
-using System.Generic.Collection;
+﻿using Microsoft.AspNetCore.Mvc;
+using Data;
+using Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
-namespace Controllers
+namespace Controllers;
+
+public class CartController : Controller
 {
-    public class CartController
+    private WebshopContext _context;
+    private readonly UserManager<IdentityUser> _manager;
+
+    public CartController(WebshopContext context, UserManager<IdentityUser> manager) 
     {
-        private WebshopContext _context;
-        private readonly UserManager<IdentityUser> _manager;
-        
-        public CartController(WebshopContext context, UserManager<IdentityUser> manager) 
-        {
-            _context = context;
-            _manager = manager;
-        }
+        _context = context;
+        _manager = manager;
+    }
 
-        [AllowAnonymous]
-        public IActionResult Index() 
-        {
-            Cart cart;
-            List<Cart> carts = _context.Carts;
+    [AllowAnonymous]
+    public IActionResult Index() 
+    {
+        Cart cart = new Cart();
+        List<Cart> carts = _context.Carts.ToList();
 
-            for (int i = 0; i < carts.length; i++) 
+        for (int i = 0; i < carts.Count; i++) 
+        {
+            if (carts[i].User == _manager.Users.GetEnumerator().Current) 
             {
-                if (carts[i].UserId == _manager.IdentityUser.Id) 
-                {
-                    cart = carts[i];
-                    break;
-                }
+                cart = carts[i];
+                break;
             }
-            if (cart == null) { cart = new Cart(); }
-
-            return View(cart); 
         }
+        
+        return View(cart.Products); 
     }
 }

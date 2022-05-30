@@ -21,4 +21,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Users\create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Users\edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Users\fragments\user_comments.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Users\index.cshtml" />
+  </ItemGroup>
+
 </Project>

@@ -1,9 +1,0 @@
-    <section class="comments">
-        @foreach (var comment in Model.Comments)
-        {
-            <div class="row grid-row">
-                <div class="d-none d-md-block col-md-6">Html.DisplayFor(x => comment.Content)</div>
-                <div class="col-2 col-md-1"><p>Create </p>Html.DisplayFor(x => comment.TimeStamp)</div>
-            </div>
-        }
-    </section>

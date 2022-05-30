@@ -1,4 +1,3 @@
-using System.Generic.Collection;
 using System.ComponentModel.DataAnnotations;
 using Entities.Statuses;
 

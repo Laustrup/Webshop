@@ -1,9 +1,11 @@
-using System.Generic.Collection;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace Entities
 {
     public class Cart
     {
+        [Key]
         public int CartId { get; set; }
 
         private List<Product> _products {get; set;} public List<Product> Products { get{return _products;} }

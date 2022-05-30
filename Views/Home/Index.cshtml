@@ -1,6 +1,42 @@
-﻿@{ViewData["Title"] = "Home Page";}
+﻿@using Microsoft.AspNetCore.Identity
 
+@{ViewData["Title"] = "Home Page";}
+
+@inject SignInManager<IdentityUser> SignInManager
+
+<!-- Standard greeting -->
 <section class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Feel free to browse through all our products</p>
 </section>
+
+<!-- User details -->
+@if (SignInManager.IsSignedIn(User))
+{
+    <section>
+        @await Html.PartialAsync("fragments/details")
+        
+        <!-- Edit user -->
+        @{ViewData["Title"] = "Edit";}
+
+        <h1>Edit</h1>
+
+        <h4>Html.DisplayFor(Model.Title)</h4>
+        <hr />
+        <section class="dashboard">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        @await Html.PartialAsync("fragments/inputs")
+                    </form>
+                </div>
+            </div>
+
+            <div><a asp-action="Index">Go back</a></div>
+
+            @section Scripts {@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}
+        </section>
+    </section>
+}
