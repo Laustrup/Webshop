@@ -23,15 +23,8 @@ namespace Data
                 );
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
-
-        private void SeedUsers(ModelBuilder builder)
-        {
-            builder.Entity<User>().HasData(
-                new User("Jens","I am Jens",1)
-            );
-        }
     }
 }

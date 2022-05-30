@@ -7,7 +7,6 @@ namespace Entities
         [Key]
         public int Id {get; set;}
 
-        private User _author {get;} public User Author {get{return _author;}}
         private Product _product {get;} public Product Product {get{return _product;}}
 
         [Required(ErrorMessage = "Please insert content...")]
@@ -16,11 +15,13 @@ namespace Entities
 
         private DateTime _timeStamp {get;} public DateTime TimeStamp {get{return _timeStamp;}}
 
+        public string UserId { get; set; }
+        public IdentityUser? User { get; set; }
+
         public Comment() {}
 
-        public Comment(User author, Product product, string content)
+        public Comment(Product product, string content)
         {
-            _author = author;
             _product = product;
             _content = content;
             _timeStamp = DateTime.Now;

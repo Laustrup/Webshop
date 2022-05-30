@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Entities;
-using Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
+using Entities;
+using Data;
 
 namespace Controllers 
 {
@@ -21,18 +22,15 @@ namespace Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Index()
-        {
-            IEnumerable<Product> products = _context.Products.ToList();
-            return View(products);
-        }
+        public IActionResult Index() { return View(_context.Products.ToList()); }
 
         public IActionResult Create() {return View();}
 
         [HttpPost]
         public IActionResult Create([Bind("title","description","price","status")] Product product)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 _context.Products.Add(product);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -49,10 +47,11 @@ namespace Controllers
         [HttpPost]
         public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 _context.Products.Update(product);
                 _context.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
             return View();
         }
