@@ -19,14 +19,14 @@ namespace Webshop.Migrations
 
             modelBuilder.Entity("Entities.Cart", b =>
                 {
-                    b.Property<int>("CartId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CartId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -78,9 +78,14 @@ namespace Webshop.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CartId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
 
@@ -318,6 +323,12 @@ namespace Webshop.Migrations
                     b.HasOne("Entities.Cart", null)
                         .WithMany("Products")
                         .HasForeignKey("CartId");
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
