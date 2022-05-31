@@ -95,7 +95,7 @@ namespace Webshop.Migrations
                             Id = 1,
                             Description = "This is a guitar",
                             Price = 15000,
-                            Status = 0,
+                            Status = 1,
                             Title = "Gibson Les Paul Standard"
                         });
                 });

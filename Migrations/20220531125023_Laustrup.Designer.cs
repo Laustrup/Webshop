@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Webshop.Migrations
 {
     [DbContext(typeof(WebshopContext))]
-    [Migration("20220531111253_Laustrup")]
+    [Migration("20220531125023_Laustrup")]
     partial class Laustrup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,7 +97,7 @@ namespace Webshop.Migrations
                             Id = 1,
                             Description = "This is a guitar",
                             Price = 15000,
-                            Status = 0,
+                            Status = 1,
                             Title = "Gibson Les Paul Standard"
                         });
                 });

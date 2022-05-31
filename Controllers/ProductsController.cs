@@ -27,7 +27,7 @@ namespace Controllers
         public IActionResult Create() {return View();}
 
         [HttpPost]
-        public IActionResult Create([Bind("title","description","price","status")] Product product)
+        public IActionResult Create([Bind("title","description","price")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +45,7 @@ namespace Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("id", "title", "description", "price" )] Product product)
+        public IActionResult Edit(int id, [Bind("id", "title", "description", "price", "status")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Controllers
         }
         
         [HttpPost]
-        public IActionResult AddToCart(int id, [Bind("id", "title", "description", "price" )] Product product)
+        public IActionResult AddToCart(int id, [Bind("id", "title", "description", "price", "status")] Product product)
         {
             
             if (ModelState.IsValid)

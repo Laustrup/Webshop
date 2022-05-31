@@ -27,21 +27,21 @@ namespace Entities
 
         private ProductStatus _status {get;set;} public ProductStatus Status {get{return _status;} set{_status = value;}}
 
-        public Product(string title,string description,int price,IdentityUser owner)
+        public Product(string title,string description,int price, ProductStatus status)
         {
             _title = title;
             _description = description;
             _price = price;
-            User = owner;
+            _status = status;
         }
 
-        public Product(string title,string description,int price,int id,IdentityUser owner)
+        public Product(string title,string description,int price, ProductStatus status, int id)
         {
             _title = title;
             _description = description;
             _price = price;
             Id = id;
-            User = owner;
+            _status = status;
         }
 
         public List<Comment> Add_Comment(Comment comment)
