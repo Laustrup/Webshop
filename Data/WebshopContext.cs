@@ -1,4 +1,5 @@
 using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -18,9 +19,9 @@ namespace Data
 
         private void SeedProducts(ModelBuilder builder)
         {
-                builder.Entity<Product>().HasData(
-                    new Product("Gibson Les Paul Standard", "This is a guitar",15000,1)
-                );
+            builder.Entity<Product>().HasData(
+                new Product("Gibson Les Paul Standard", "This is a guitar",15000,1,new IdentityUser("Søren Jensen"))
+            );
         }
 
         public DbSet<Cart> Carts { get; set; }

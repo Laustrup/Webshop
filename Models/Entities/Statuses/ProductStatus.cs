@@ -1,1 +1,1 @@
-namespace Entities.Statuses {public enum ProductStatus {DRAFT,PUBLISHED}}
+namespace Entities.Statuses {public enum ProductStatus {SOLD, UNSOLD}}

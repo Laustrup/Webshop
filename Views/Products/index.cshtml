@@ -24,7 +24,10 @@
     <section class="row">
         <div class="col-6 col-md-2">Title</div>
         <div class="col-2 col-md-1">Price</div>
+        <div class="col-2 col-md-1">Owner</div>
+        <div class="col-2 col-md-1">Status</div>
     </section>
+    
     <!-- Each row of products -->
     <section>
         @foreach (var product in Model)
@@ -32,14 +35,10 @@
         <section class="row grid-row">
             <div class="col-6 col-md-2">@Html.DisplayFor(x => product.Title)</div>
             <div class="col-2 col-md-1">@Html.DisplayFor(x => product.Price)</div>
-            @foreach (var comment in product.Comments) 
-            {
-                <section class="row grid-row">
-                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.User.UserName)</div>
-                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.Content)</div>
-                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.TimeStamp)</div>
-                </section>
-            }
+            <div class="col-2 col-md-1">@Html.DisplayFor(x => product.User.Email)</div>
+            <div class="col-2 col-md-1">@Html.DisplayFor(x => product.Status)</div>
+            
+            <!-- Buttons -->
             <div class="col-1"><a class="btn btn-secondary" asp-controller="Comments" asp-action="Create" asp-route-id="@product.Id">Create a comment</a></div>
             @if (product.User != null && SignInManager.UserManager.GetUserId(SignInManager.Context.User) == product.User.Id)
             {
@@ -48,6 +47,23 @@
             @if (product.User != null && SignInManager.UserManager.GetUserId(SignInManager.Context.User) != product.User.Id)
             {
                 <div class="col-1"><a class="btn btn-secondary" asp-action="edit" asp-route-id="@product.Id">Put in cart</a></div>
+            }
+
+            <!-- Titles of each column -->
+            <section class="row">
+                <div class="col-6 col-md-2">User</div>
+                <div class="col-2 col-md-1">Content</div>
+                <div class="col-2 col-md-1">Timestamp</div>
+            </section>
+            
+            <!-- Each row of comments -->
+            @foreach (var comment in product.Comments) 
+            {
+                <section class="row grid-row">
+                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.User.UserName)</div>
+                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.Content)</div>
+                <div class="col-1 col-md-1">@Html.DisplayFor(x => comment.TimeStamp)</div>
+                </section>
             }
         </section>
         }
