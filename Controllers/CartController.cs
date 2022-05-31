@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Data;
 using Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using services;
 
 namespace Controllers;
 
@@ -11,27 +11,28 @@ public class CartController : Controller
     private WebshopContext _context;
     private readonly UserManager<IdentityUser> _manager;
 
+    private CartService service;
+
     public CartController(WebshopContext context, UserManager<IdentityUser> manager) 
     {
         _context = context;
         _manager = manager;
+        service = new CartService(context);
     }
 
-    [AllowAnonymous]
     public IActionResult Index() 
     {
-        Cart cart = new Cart();
-        List<Cart> carts = _context.Carts.ToList();
+        return View(service.FindCart(_manager.GetUserAsync(HttpContext.User)).Products); 
+    }
 
-        for (int i = 0; i < carts.Count; i++) 
-        {
-            if (carts[i].User == _manager.Users.GetEnumerator().Current) 
-            {
-                cart = carts[i];
-                break;
-            }
-        }
+    public IActionResult BuyAll()
+    {
+        Cart cart = service.FindCart(_manager.GetUserAsync(HttpContext.User));
+        cart.RemoveProducts(); 
         
-        return View(cart.Products); 
+        _context.Carts.Update(cart); 
+        _context.SaveChanges();
+
+        return RedirectToAction("Index");
     }
 }

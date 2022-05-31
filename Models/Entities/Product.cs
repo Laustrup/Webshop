@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Entities.Statuses;
+using Microsoft.AspNetCore.Identity;
 
 namespace Entities
 {
@@ -7,6 +8,9 @@ namespace Entities
 
         [Key]
         public int Id {get; set;}
+        
+        public string UserId { get; set; }
+        public IdentityUser? User { get; set; }
 
         [Required(ErrorMessage = "Please insert title...")]
         [MinLength(3,ErrorMessage = "Minimum length is 3!")]

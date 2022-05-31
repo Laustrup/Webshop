@@ -55,5 +55,17 @@ namespace Controllers
             }
             return View();
         }
+        
+        [HttpPost]
+        public IActionResult AddToCart(int id, [Bind("id", "title", "description", "price" )] Product product)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                _context.Products.Update(product);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
